@@ -1,5 +1,6 @@
-package com.example.calculator;
+package com.example.calculator.servis;
 
+import com.example.calculator.servis.CalculatorServis;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -40,7 +41,7 @@ public class CalculatorServisImpl implements CalculatorServis {
             return checkParametrs(num1,num2);
         }
         if(Integer.parseInt(num2) == 0){
-            return "На ноль делить нельзя";
+            throw new IllegalArgumentException("На ноль делить нельзя");
         } else {
             return num1 + " / " + num2 + " = " + ((double)Integer.parseInt(num1) / (double)Integer.parseInt(num2));
         }
